@@ -1,0 +1,84 @@
+<%- include("../_layouts/adminheader") %>
+<br/>
+
+<div class="jumbotron">
+	<h1 class="text-center"><strong>Welcome Admin.</strong></h1>
+	<hr/>
+	<h2 class="text-center"> You can now add a Product.</h2>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<a href="/admin/products" class="btn btn-primary">Back to Product List</a>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<br/>
+		<br/>
+		<h2 style="page-decoration:underline">Product Addition Form</h2>
+
+		<form method="post" action="/admin/products/add-product" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="">Product</label>
+				<input type="text" class="form-control capitalize-text" name="title" value="<%= title %>" placeholder="Product">
+			</div>
+
+			<div class="form-group">
+				<label for="">Price (USD)</label>
+				<input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price (eg: 59.99)">
+			</div>
+
+			<div class="form-group"><select></select>
+				<label for="">Category</label>
+				<select name="category" class="form-control">
+						<option value="Please Select a Category Below"></option>
+					<% categories.forEach(function(category) { %>
+						<option class="capitalize-text" value="<%= category.slug %>"><%= category.title.replace(/\-+/g, " ") %></option>
+					<% }); %>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="">Description</label>
+				<textarea id="text-area" name="description" class="form-control" cols="30" rows="10" placeholder="Description"><%= description %></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="">Product Image</label>
+				<input type="file" id="productImg" class="form-control" name="image">
+				<div class="row">
+					<div class="col-sm-12 text-center img-responsive" style="margin:0 auto; margin-top: 50px">
+						<h4>Product Image Preview</h4>
+						<img id="productImgPreview" width="350" height="300" src="/images/defaultImg.png" alt="Uploaded Product Image">
+					</div>
+				</div>	
+			</div>
+
+			<button class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//Upload Product Image File Functionality:
+	function readURL(input) {
+		if(input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function(event) {
+				$("#productImgPreview").attr("src", event.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		};
+	};
+
+	$("#productImg").on("change", function() {
+		console.log("inside the on-change form");
+		readURL(this);
+	});
+</script>
+
+<%- include("../_layouts/adminfooter") %>

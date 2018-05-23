@@ -1,0 +1,325 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Exo 2', sans-serif;
+}
+
+h1, h2, h3 {
+	color: white;
+}
+
+hr {
+	height: 2px;
+	width: 60%;
+	margin: 0 auto;
+	background-color: white;
+}
+
+.navbar {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding-bottom: 20px;
+	z-index: 999;
+}
+
+.pages-headline {
+	position: relative;
+	bottom: 75px;
+}
+
+.pages-row {
+	padding: 50px 20px;
+	background: #2d2d37;
+}
+
+.parallax {
+	width: 100%;
+	height: 600px;
+	background: url("../images/ironOnIronWorker.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	/*for parallax scrolling effect:*/
+	background-attachment: fixed;
+    background-position: center;
+}
+.parallaxImg2 {
+	width: 100%;
+	height: 600px;
+	background: url("../images/mapsEdgesTools.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	/*for parallax scrolling effect:*/
+	background-attachment: fixed;
+    background-position: center;
+}
+
+.parallaxImg3 {
+	width: 100%;
+	height: 600px;
+	background: url("../images/footerPic.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	/*for parallax scrolling effect:*/
+	background-attachment: fixed;
+    background-position: center;
+}
+
+.parallaxImg4 {
+	width: 100%;
+	height: 600px;
+	background: url("../images/craneAtDam.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	/*for parallax scrolling effect:*/
+	background-attachment: fixed;
+    background-position: center;
+}
+
+.parallaxImg5 {
+	width: 100%;
+	height: 600px;
+	background: url("../images/heavyMetalShop.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	/*for parallax scrolling effect:*/
+	background-attachment: fixed;
+    background-position: center;
+}
+
+.user-container {
+	background-color: #2d2d37;
+}
+
+.navbar.navbar-dark {
+	margin-bottom:20px;
+}
+
+#logo-name {
+	font-family: 'Quicksand', sans-serif;
+}
+
+.navbar li > a {
+	color: white;
+}
+
+.navbar li {
+	margin-right: 15px;
+}
+
+.user-h1 {
+	color: black;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 600;
+}
+
+.container {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#home-content {
+	margin: 5px 25px;
+}
+
+#homepage-row {
+	padding: 50px 20px;
+	background: #2d2d37;
+}
+
+.page-content {
+	margin: 5px 25px;
+}
+
+.higherZ {
+	z-index: 999;
+}
+
+img.spi {
+	width: 100%;
+
+}
+
+ul.gallery.li {
+	display: inline-block;
+	margin: 20px;
+	list-style: none;
+}
+
+a.productArea {
+    display: inline-block;
+    margin: 0 auto;
+    height: 160px;	
+}
+
+img.productImage {
+	width: 150px;
+	height: 150px;
+}
+
+.row.products .products {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.productDiv {
+	margin: 20px 0px;
+	width: 200px;
+}
+
+li.list-group-item > a {
+	color: #02041d;
+	font-weight: bold;
+}
+
+.capitalize-text {
+	text-transform: capitalize;
+}
+
+.cartImages {
+	text-align: center;
+	vertical-align: middle !important;
+	margin: 0 auto;
+}
+
+.cart-area {
+	min-height: 400px;
+}
+
+.ajaxbg {
+	position: absolute;;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255, .8);
+	z-index: 2;
+	display: none;
+}
+
+.ajaxinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.alert-error {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+p { /*this is for the content created by thte admin page...*/
+	color: white;
+}
+
+.payPal {
+	display: none;
+}
+
+.alignMiddle {
+	margin: 0 auto !important;
+}
+
+table.alignMiddle td {
+	vertical-align: middle !important;
+}
+
+.footer.fixed-bottom {
+	background-color: #fff;
+}
+
+/*////////  Homepage Video Styling  ////////*/
+
+#headline {
+	position: relative;
+	top: 200px;
+}
+
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    background: #2d2d37;
+}
+
+#innerVidDiv {
+	position: relative;
+	bottom: 75px;
+}
+
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.video-container video {
+	height: 100%;
+    /*position: absolute;
+    z-index: 0;
+    bottom: 0;*/
+}
+
+video.fillWidth {
+    width: 100%;
+    height: 100%;
+}
+
+/*/////// bouncing arrow /////////*/
+.arrow {
+  text-align: center;
+  margin: 8% 0;
+  height: 50px;
+  position: absolute;
+  left: 47%;
+  bottom: 33%;
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

@@ -1,0 +1,40 @@
+<%- include("../_layouts/adminheader") %>
+<br/>
+
+<div class="jumbotron">
+	<h1 class="text-center"><strong>Welcome Admin</strong></h1>
+	<hr/>
+	<h2 class="text-center">Available Categories</h2>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<a href="/admin/categories/add-category" class="btn btn-primary">Add a new category</a>
+	</div>
+	
+	<br/>
+	<br/>
+	<br/>
+
+	<table class="table table-striped sorting">
+		<thead>
+			<tr>
+				<th>Category</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% categories.forEach(function(category) { %>
+			<tr id="id_<%= category._id %>" class="<%= category.slug %>">
+				<td class="capitalize-text"><%= category.title.replace(/\-+/g, " ") %></td>
+				<td><a href="/admin/categories/edit-category/<%= category._id %>">Edit</a></td>
+				<td class="confirm-deletion"><a href="/admin/categories/delete-category/<%= category._id %>">Delete</a></td>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+
+</div>
+
+<%- include("../_layouts/adminfooter") %>

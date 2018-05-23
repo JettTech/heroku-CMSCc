@@ -1,0 +1,50 @@
+<%- include("../_layouts/adminheader") %>
+<br/>
+
+<div class="jumbotron">
+	<h1 class="text-center"><strong>Welcome Admin</strong></h1>
+	<hr/>
+	<h2 class="text-center">Available Pages</h2>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<a href="/admin/pages/add-page" class="btn btn-primary">Add a new page</a>
+	</div>
+	
+	<br/>
+	<br/>
+	<br/>
+
+	<table class="table table-striped sorting">
+		<thead>
+			<tr class="home">
+				<th>Title</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% pages.forEach(function(page) { %>
+			<tr id="id_<%= page._id %>" class="<%= page.slug %>">
+				<td class="capitalize-text"><%= page.title.replace(/\-+/g, " ") %></td>
+				<td><a href="/admin/pages/edit-page/<%= page._id %>">Edit</a></td>
+
+				<% if(page.slug === "Home" || page.slug === "home" ) { %>
+				<!-- <% console.log("This should (*only) be the home page:") %> -->
+<!-- 				<% console.log(page.title) %> -->
+				<td>Disabled</td>
+				<% } else { %>
+				<!-- <% console.log("Page title:") %> -->
+<!-- 				<% console.log(page.title) %> -->
+				<td class="confirm-deletion"><a href="/admin/pages/delete-page/<%= page._id %>">Delete</a></td>
+				<% } %>
+
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+
+</div>
+
+<%- include("../_layouts/adminfooter") %>

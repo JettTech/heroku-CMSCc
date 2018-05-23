@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--<meta name="description" content="" />
+    <meta name="author" content=""/> -->
+
+    <title style="text-transform: capitalize;">CMSCc Admin: <%= title.replace(/\-+/g, " ") %> View</title>
+    <!-- favicon image -->
+    <link rel="icon" type="text/css" href="/images/icon.jpg"> 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Local CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/admin-style.css">
+
+    <!-- SCRIPTS: -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- jQuery UI Editor (Drag-Drop Functionality) JS -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- CKEditor JS -->
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <!-- Local JS File (Main.js) -->
+    <script src="/js/main.js"></script>
+  </head>
+
+  <body class="admin-container ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> <!-- navbar-fixed-top -->
+      <a id="logo-name" class="navbar-brand" href="#">
+        <img src="/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="CMSCc Logo"/>
+        CMSCc
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin/pages/">Pages <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/categories/">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/products/">Products</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a style="color:white; margin-right:20px;" href="/pages">Client Portal</a></li>
+          <li><a style="color:white; margin-right:20px;" href="/users/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container text-center justify-content-center">
+      <%- messages('messages', locals) %>
+
+      <% if (errors) {%>
+        <% errors.forEach(function(error) { %>
+        <div class="alert alert-danger">
+            <%= error.msg %>
+        </div>
+        <% });%>
+    <% }%>

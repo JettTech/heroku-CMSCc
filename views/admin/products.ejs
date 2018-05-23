@@ -1,0 +1,61 @@
+<%- include("../_layouts/adminheader") %>
+<br/>
+
+<div class="jumbotron">
+	<h1 class="text-center"><strong>Welcome Admin</strong></h1>
+	<hr/>
+	<h2 class="text-center">Available Products</h2>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+		<a href="/admin/products/add-product" class="btn btn-primary">Add a new Product</a>
+	</div>
+	
+	<br/>
+	<br/>
+	<br/>
+
+	<% if (count > 0) { %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Category</th>
+				<th>Product Image</th>
+				<th>View</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% products.forEach(function(product) { %>
+			<tr>
+				<td class="capitalize-text"><%= product.title.replace(/\-+/g, " ") %></td>
+				<td class="capitalize-text">$<%= parseFloat(product.price).toFixed(2) %></td>
+				<td class="capitalize-text"><%= product.category.replace(/\-+/g, " ") %></td>
+				<td>
+				<% if (product.image === "") { %>
+					<img src="/images/defaultImg.png" alt="Default Profile Image" width="350" height="350">
+				 <% } else { %> 
+					<img src="/product_images/<%= product._id %>/<%= product.image %>" alt="Profile Image" width="75" height="50">
+				 <% } %>	
+				</td>
+				<td><a href="/admin/products/view-product/<%= product._id %>">View</a></td>
+				<td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
+				<td class="confirm-deletion"><a href="/admin/products/delete-product/<%= product._id %>">Delete</a></td>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+
+	<% } else { %>
+	<div class="col-sm-12 text-center">
+		<h3>No Products Currently Available.</h3>
+	</div>
+	<% } %>
+
+</div>
+
+<%- include("../_layouts/adminfooter") %>

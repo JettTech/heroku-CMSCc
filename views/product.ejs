@@ -1,0 +1,60 @@
+<% include _layouts/header %>
+
+	<div class="parallax">
+		<div class="pages-headline justify-content-center">
+			<h1 id="headline capitalize-text" class="user-h1 col-xs-12"><%= product.title.replace(/\-+/g, " ") %></h1>
+		</div>
+		<br/>  
+	</div> <!-- end of first row/ header area... -->
+
+	<div class="row pages-row justify-content-center">
+		<div class="col-xs-12 col-md-5">
+		  <h1 class="capitalize-text"><%= product.title.replace(/\-+/g, " ") %></h1>
+		  <hr/>
+		  <p><%- product.description %></p>
+		  <br/>
+		  <br/>
+	      <img src="/product_images/<%= product.id %>/<%= product.image %>" alt="" class="spi">
+	      <br/>
+	      <br/>
+	  	</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-9">
+			<div class="row justify-content-center">
+				<div class="col-xs-12 col-md-7">
+					<p>$<%= parseFloat(product.price).toFixed(2) %></p>
+					<% if (loggedIn) { %>
+						<p><a class="btn btn-primary" href="/cart/add/<%= product.slug %>">Add to Cart</a></p>
+			    	<% } else { %> 
+						<p>Please log in to purchase items.</p>
+			    	<% } %> 
+			    	<p><a class="btn btn-warning" href="/products">Back to All Products</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row pages-row justify-content-center">
+		<div class="col-xs-12">
+			<hr />
+			<br/>
+			<h2 class="page-header text-center">Image Gallery</h2>
+			<br/>
+			<br/>
+
+			<ul class="gallery noListDots d-flex justify-content-left flex-wrap">
+				<% galleryImages.forEach(function(image) { %>
+					<% if (image !== "thumbnails") { %>
+					<br/>
+					<br/>
+					<li class="thumbnailDisplayPix">
+						<a data-fancybox="gallery" href="/product_images/<%= product.id %>/gallery/<%= image %>">
+							<img style="margin-top:10px; margin-right:10px" width="150" height="100" class="flex" src="/product_images/<%= product.id %>/gallery/thumbnails/<%= image %>" alt="Product Image">
+						</a>
+					</li>
+					<% } %>
+				<% }); %>
+			</ul>
+		</div>
+
+<% include _layouts/footer %>

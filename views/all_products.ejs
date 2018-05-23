@@ -1,0 +1,43 @@
+<% include _layouts/header %>
+
+	<div class="parallax">
+		<div class="pages-headline justify-content-center">
+			<h1 id="headline" class="user-h1 col-xs-12 capitalize-text"><%= title.replace(/\-+/g, " ") %></h1>
+		</div>
+		<br/>  
+	</div>
+
+	<div class="row pages-row">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+	      <h3 class="text-white">Services</h3>
+	      <br/>
+
+	      <ul class="list-group">
+	        <li class="list-group-item">
+	          <a href="/products">All Services</a>
+	        </li>
+
+	        <% categories.forEach(function(category) { %>
+	        <li class="list-group-item">
+	          <a class="capitalize-text" href="/products/<%= category.slug %>"><%= category.title.replace(/\-+/g, " ") %></a>
+	        </li>
+	        <% }); %>
+	      </ul>
+	  	</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-9">
+			<div class="row products d-flex justify-content-left flex-wrap">
+			    <% products.forEach(function(product){ %>
+			        <div class="flex productDiv">
+			            <a class="productArea " href="/products/<%= product.category %>/<%= product.slug %>">
+			                <img class="productImage" src="/product_images/<%= product.id %>/<%= product.image %>" alt="">
+			            </a>
+			            <h5 class="capitalize-text text-white"><%= product.title.replace(/\-+/g, " ") %></h5>
+			            <h6 class="text-white">$<%= parseFloat(product.price).toFixed(2) %></h6>
+			            <a class="viewDetails text-warning" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
+			        </div>
+			    <% }); %>
+			</div>
+		</div>
+
+<% include _layouts/footer %>

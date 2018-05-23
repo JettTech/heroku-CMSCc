@@ -1,0 +1,30 @@
+<% include _layouts/homeHeader %>
+
+	<div class="homepage-hero-module">
+		<div id="innerVidDiv">
+			<div class="headline justify-content-center">
+				<h1 id="headline" class="user-h1 col-xs-12 text-white">Welcome to CMS Construction.Co</h1>
+			</div>
+		    <div class="filter"></div>
+		    <video autoplay preload="auto" muted="true" loop class="fillWidth fadeIn animated" poster="/images/Snapshots/Handyman-Construction.jpg">
+		        <source src="/images/MP4/Handyman-Construction.mp4" type="video/mp4" />
+		        <source src="/images/WEBM/Handyman-Construction.webm" type="video/webm" />
+		    </video>
+		</div>
+	    <div class="arrow bounce">
+	    	<img height="75px" src="/images/arrow.png">
+	    </div>
+	</div> <!-- end of first row/jumbotron area... -->
+
+	<div id="homepage-row" class="row">
+		<div class="col-xs-12">
+			<div id="home-content" class="row justify-content-center">
+				<div class="col-xs-12 font-white"><%- content %></div>
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+		</div>
+
+<% include _layouts/footer %>

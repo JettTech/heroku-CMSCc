@@ -1,0 +1,58 @@
+<% include _layouts/header %>
+
+	<div class="parallaxImg4"></div>
+
+	<div class="row pages-row">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+	      <h3 class="text-white">Categories</h3>
+	      <br/>
+
+	      <ul class="list-group">
+	        <li class="list-group-item">
+	          <a href="/products">All Products</a>
+	        </li>
+
+	        <% categories.forEach(function(category) { %>
+	        <li class="list-group-item">
+	          <a class="capitalize-text" href="/products/<%= category.slug %>"><%= category.title.replace(/\-+/g, " ") %></a>
+	        </li>
+	        <% }); %>
+	      </ul>
+	  	</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-9">
+			<div class="row justify-content-center">
+				<div class="col-xs-12" style="margin:0 auto;">
+					<br/>
+
+					<h1 class="text-white"><%= title %></h1>
+
+					<form method="post" action="/users/register">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" placeholder="Name">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" class="form-control" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" name="username" class="form-control" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" name="password" class="form-control" placeholder="Password">
+						</div>				
+						<div class="form-group">
+							<label>Confirm Password</label>
+							<input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+						</div>
+
+						<button type="submit" class="btn btn-success">Register</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+<% include _layouts/footer %>

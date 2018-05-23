@@ -1,0 +1,34 @@
+<% include _layouts/header %>
+
+	<div class="parallaxImg2">
+		<div class="pages-headline justify-content-center">
+			<h1 id="headline" class="user-h1 col-xs-12">Welcome to CMS Construction.Co</h1>
+		</div>
+		<br/>  
+	</div> <!-- end of first row/ header area... -->
+
+	<div class="row pages-row">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+	      <h3 class="text-white">Services</h3>
+	      <br/>
+
+	      <ul class="list-group">
+	        <li class="list-group-item">
+	          <a href="/products">All Services</a>
+	        </li>
+
+	        <% categories.forEach(function(category) { %>
+	        <li class="list-group-item">
+	          <a class="capitalize-text" href="/products/<%= category.slug %>"><%= category.title.replace(/\-+/g, " ") %></a>
+	        </li>
+	        <% }); %>
+	      </ul>
+	  	</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-9">
+			<div class="row justify-content-center page-content">
+				<div class="col-xs-12 font-white"><%- content %></div>
+			</div>
+		</div>
+
+<% include _layouts/footer %>
