@@ -66,11 +66,11 @@
         <div class="dropdown-divider"></div>
         </ul>
         <span class="navbar-text">
-          <ul class="text-center text-white navbar-nav ml-auto" style="margin-right: 20px; margin-bottom: 1rem; list-style:none;">
+          <ul class="text-center text-white navbar-nav ml-auto" style="list-style:none;">
             <% if (user && user.admin === 1) { %>
-              <li>Hello <%= user.username %> (Admin) | </li>
-              <li><a href="/admin/pages">Admin Area</a></li>
-              <li>
+              <li class="navRightLinks">Hello <%= user.username %> (Admin) | </li>
+              <li class="navRightLinks"><a href="/admin/pages">Admin Area</a></li>
+              <li class="navRightLinks">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
                      (<% cart.length %>)
@@ -79,11 +79,11 @@
                    <% } %>  
                 </a>
               </li>
-              <li><a href="/users/logout">Log Out</a></li>
+              <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
             <% } %> 
             <% if (user && user.admin === 0) { %>
-              <li>Hi, <%= user.username %>!</li>
-              <li>
+              <li class="navRightLinks">Hi, <%= user.username %>!</li>
+              <li class="navRightLinks">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
                      (<% cart.length %>) 
@@ -92,10 +92,10 @@
                    <% } %>  
                 </a>
               </li>
-              <li><a href="/users/logout">Log Out</a></li>
+              <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
             <% } else if (!user) { %> 
-              <li><a href="/users/register" style="margin-right: 20px;">Register</a></li>
-              <li><a href="/users/login">Log in</a></li>
+              <li class="navRightLinks"><a href="/users/register" style="margin-right: 20px;">Register</a></li>
+              <li class="navRightLinks"><a href="/users/login">Log in</a></li>
             <% } %> 
           </ul>
         </span>
