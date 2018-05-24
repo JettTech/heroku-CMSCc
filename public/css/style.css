@@ -30,6 +30,7 @@ hr {
 .pages-row {
 	padding: 50px 20px;
 	background: #2d2d37;
+	margin: 0 auto !important;
 }
 
 .parallax {
@@ -129,6 +130,7 @@ hr {
 #homepage-row {
 	padding: 50px 20px;
 	background: #2d2d37;
+	margin: 0 auto !important;
 }
 
 .page-content {
@@ -304,6 +306,15 @@ video.fillWidth {
   position: absolute;
   left: 47%;
   bottom: 33%;
+}
+
+
+@media screen and (max-width: 425) { /*and (min-width: ) */
+	.arrow {
+		position: absolute;
+	  	left: 42%;
+	 	bottom: 56%;
+	}
 }
 
 .bounce {
