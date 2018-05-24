@@ -263,13 +263,13 @@ table.alignMiddle td {
 	top: 200px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 575px) {
 	#headline {
 		display: none !important;
 	}
 
 	.headline {
-		margin-top: 235px;
+		margin-top: 135px;
 	}
 }
 
@@ -351,7 +351,7 @@ video.fillWidth {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
-	 	bottom: 21%;
+	 	bottom: 58%;
 	}
 }
 
