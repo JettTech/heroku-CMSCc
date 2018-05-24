@@ -27,7 +27,8 @@ router.get("/login", function(req, res) {
 	}
 	else {
 		res.render("login", {
-			title: "Log In"
+			title: "Log In",
+			message: req.flash("There was a Login Error. Please verify your credentials and try again.")
 		});
 	}
 });
@@ -93,7 +94,7 @@ router.post("/register", function(req, res) {
 							if(err) console.log(err);
 							
 							else {
-								req.flash("success", "Welcome to the party! You are now registered.");
+								req.flash("success", "You are now registered. Welcome to the party! \n Login to start building your next project.");
 								res.redirect("/users/login");
 							}
 						});

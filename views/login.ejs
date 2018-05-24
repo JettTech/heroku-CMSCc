@@ -2,6 +2,13 @@
 
 	<div class="parallaxImg4"></div>
 
+	<% if (message) {%>
+        <% message.forEach(function(error) { %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+        <% });%>
+    <% }%>
 
 	<div class="row pages-row">
 		<div class="col-xs-12 col-sm-6 col-md-3">
