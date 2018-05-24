@@ -33,7 +33,7 @@ router.get("/login", function(req, res) {
 });
 
 
-//GET the User LOG IN page
+//GET the User LOG OUT page
 router.get("/logout", function(req, res) {
 	req.logout();
 	req.flash("success", "You are logged out!");
