@@ -103,7 +103,7 @@
               </a>
             </li>
             <li><a href="/users/logout">Log Out</a></li>
-          <% } else { %> 
+          <% }else if (!user) { %> 
             <li><a href="/users/register">Register</a></li>
             <li><a href="/users/login">Log in</a></li>
           <% } %> 
