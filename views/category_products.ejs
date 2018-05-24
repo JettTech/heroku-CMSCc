@@ -33,8 +33,8 @@
 			                <img class="productImage" src="/product_images/<%= product.id %>/<%= product.image %>" alt="">
 			            </a>
 			            <h5 class="capitalize-text text-white"><%= product.title.replace(/\-+/g, " ") %></h5>
-			            <h6 class="text-white">$<%= parseFloat(product.price).toFixed(2) %>/Day</h6>
-			            <a class="viewDetails text-white" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
+			            <h6 class="text-white">$<%= parseFloat(product.price).toFixed(2) %>/Day of Labor</h6>
+			            <a class="viewDetails text-warning" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
 			        </div>
 			    <% }); %>
 			</div>
