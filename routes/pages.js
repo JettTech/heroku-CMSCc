@@ -20,7 +20,7 @@ router.get("/pages", function(req, res) {
 		}
 		res.render("homeIndex", {
 			title: "CMS Construction.Co",
-			content: "" //page.content || ""
+			content: page.content
 		});
 	});
 });
