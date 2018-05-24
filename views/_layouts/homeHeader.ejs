@@ -67,7 +67,7 @@
         <ul class="text-center text-white navbar-nav navbar-right" style="margin-right: 20px;">
           <% if (user && user.admin === 1) { %>
             <li>Hello <%= user.username %> (Admin).</li>
-            <li href="/admin/pages">Admin Area</li>
+            <li><a href="/admin/pages">Admin Area</a></li>
             <li>
               <a href="/cart/checkout">My Cart 
                 <% if (typeof cart !== "undefined") { %>
@@ -77,9 +77,9 @@
                  <% } %>  
               </a>
             </li>
-            <li href="/users/logout">Log Out</li>
+            <li><a href="/users/logout">Log Out</a></li>
           <% } %> 
-          <% if (user) { %>
+          <% if (user && user.admin === 0) { %>
             <li>Hi, <%= user.username %>!</li>
             <li>
               <a href="/cart/checkout">My Cart 
