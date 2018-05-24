@@ -23,7 +23,7 @@ hr {
 }
 
 .h1-textShadow {
-	text-shadow: 2px 2px white;
+	text-shadow: 1px 2px black;
 }
 
 .pages-headline {
@@ -263,15 +263,15 @@ table.alignMiddle td {
 	top: 200px;
 }
 
-/*@media screen and (max-width: 425px) {
+@media screen and (max-width: 425px) {
 	#headline {
 		display: none !important;
 	}
 
 	.headline {
-		margin-top: 135px;
+		margin-top: 235px;
 	}
-}*/
+}
 
 .homepage-hero-module {
     border-right: none;
@@ -351,7 +351,7 @@ video.fillWidth {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
-	 	bottom: 57%;
+	 	bottom: 21%;
 	}
 }
 
