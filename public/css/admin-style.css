@@ -48,6 +48,10 @@ form > textarea {
 	border: 2px dashed #ccc;
 }
 
+.sort-table {
+	border: 2px dashed #ccc;
+}
+
 #productImgPreview {
 	margin: 20px 0px;
 }

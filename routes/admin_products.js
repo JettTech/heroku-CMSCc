@@ -39,7 +39,7 @@ router.get("/", isAdmin, function(req, res) {
 	});
 
 	// res.send("This is the Admin Product Area");
-	Product.find({}).sort({sorting: 1}).exec(function(err, products) {
+	Product.find(function(err, products) {
 		res.render("admin/products", {
 			title: "Product Dashboard",
 			products: products //,
@@ -198,14 +198,14 @@ router.get("/delete-product/:id", isAdmin, function(req, res) {
 					return console.log(err);
 				}
 
-				Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-					if (err) {
-						console.log(err)
-					}
-					else {
-						req.app.locals.products = products;
-					}
-				});
+				// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
+				// 	if (err) {
+				// 		console.log(err)
+				// 	}
+				// 	else {
+				// 		req.app.locals.products = products;
+				// 	}
+				// });
 
 				req.flash("success", "The product was successfully deleted.");
 				res.redirect("/admin/products");
@@ -331,8 +331,8 @@ router.post("/add-product", function(req, res) {
 					description: description,
 					price: priceFixed,
 					category: category,
-					image: image,
-					sorting: Infinity 
+					image: image//,
+					// sorting: Infinity 
 				});
 
 				product.save(function(err) {
@@ -369,14 +369,14 @@ router.post("/add-product", function(req, res) {
 						});
 					}
 
-					Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-						if (err) {
-							console.log(err)
-						}
-						else {
-							req.app.locals.products = products;
-						}
-					});
+					// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
+					// 	if (err) {
+					// 		console.log(err)
+					// 	}
+					// 	else {
+					// 		req.app.locals.products = products;
+					// 	}
+					// });
 
 					req.flash("success", "Product added!");
 					res.redirect("/admin/products");
@@ -438,20 +438,20 @@ function sortProducts(ids, callback) {
 };
 
 //This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
-router.post("/reorder-products", function(req, res) {
-	var ids = req.body["id[]"];
+// router.post("/reorder-products", function(req, res) {
+// 	var ids = req.body["id[]"];
 
-	sortProducts(ids, function() {
-		Product.find({}).sort({sorting: 1}).exec(function (err, products) {
-			if(err) {
-				console.log(err);
-			}
-			else {
-				req.app.locals.products = products;
-			}
-		});
-	});
-});
+// 	sortProducts(ids, function() {
+// 		Product.find({}).sort({sorting: 1}).exec(function (err, products) {
+// 			if(err) {
+// 				console.log(err);
+// 			}
+// 			else {
+// 				req.app.locals.products = products;
+// 			}
+// 		});
+// 	});
+// });
 
 //4.) To POST the UPDATE the Edited products to DB:
 //-----------------------------------------------
@@ -571,15 +571,14 @@ router.post("/edit-product/:id", function(req, res) {
 							});
 						}
 
-
-						Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-							if (err) {
-								console.log(err)
-							}
-							else {
-								req.app.locals.products = products;
-							}
-						});
+						// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
+						// 	if (err) {
+						// 		console.log(err)
+						// 	}
+						// 	else {
+						// 		req.app.locals.products = products;
+						// 	}
+						// });
 
 						req.flash("success", "Product edited!");
 						res.redirect("/admin/products/edit-product/" + id);											
