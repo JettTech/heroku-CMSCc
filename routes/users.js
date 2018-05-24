@@ -108,8 +108,8 @@ router.post("/register", function(req, res) {
 router.post("/login", function(req, res, next) {
 	passport.authenticate("local", {
 		successRedirect: "/",
-		faliureRedirect: "/users/login",
-		faliureFlash: true
+		failureRedirect: "/users/login",
+		failureFlash: true
 	})(req, res, next);
 });
 
