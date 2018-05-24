@@ -153,12 +153,11 @@ img.spi {
 }
 
 .navRightLinksFirst {
-	margin-right: 20px;
+	margin-right: 20px !important;
 	margin-bottom: 1rem;
 }
 
 .navRightLinksHeader {
-	margin-right: 20px;
 	margin-bottom: 1rem;
 	position: relative;
 	left: -17px;
