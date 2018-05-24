@@ -4,12 +4,12 @@
 <div class="jumbotron">
 	<h1 class="text-center"><strong>Welcome Admin.</strong></h1>
 	<hr/>
-	<h2 class="text-center"> Please Edit the Product.</h2>
+	<h2 class="text-center"> Please Edit the Service.</h2>
 </div>
 
 <div class="row">
 	<div class="col-sm-12 text-center">
-		<a href="/admin/products" class="btn btn-primary">Back to Product List</a>
+		<a href="/admin/products" class="btn btn-primary">Back to Service Product List</a>
 	</div>
 </div>
 
@@ -18,12 +18,12 @@
 	<div class="col-sm-12">
 		<br/>
 		<br/>
-		<h2 style="page-decoration:underline">Product Addition Form</h2>
+		<h2 style="page-decoration:underline">Service Product Edit Form</h2>
 
 		<form method="post" action="/admin/products/edit-product/:<%= id %>" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="">Product</label>
-				<input type="text" class="form-control capitalize-text" name="title" value="<%= title %>" placeholder="Product">
+				<label for="">Service</label>
+				<input type="text" class="form-control capitalize-text" name="title" value="<%= title %>" placeholder="Service">
 			</div>
 
 			<div class="form-group">
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="form-group text-center img-responsive" style="margin:0 auto; margin-top: 20px">
-				<label for="">Current Product Image</label>
+				<label for="">Current Service Image</label>
 				<p>
 				<% if (image === "") { %>
 					<img class="defaultImg" src="/images/defaultImg.png" alt="Default Profile Image" width="350" height="350">

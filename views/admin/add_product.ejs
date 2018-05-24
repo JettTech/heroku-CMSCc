@@ -4,12 +4,12 @@
 <div class="jumbotron">
 	<h1 class="text-center"><strong>Welcome Admin.</strong></h1>
 	<hr/>
-	<h2 class="text-center"> You can now add a Product.</h2>
+	<h2 class="text-center"> You can now add a Service.</h2>
 </div>
 
 <div class="row">
 	<div class="col-sm-12 text-center">
-		<a href="/admin/products" class="btn btn-primary">Back to Product List</a>
+		<a href="/admin/products" class="btn btn-primary">Back to Service Product List</a>
 	</div>
 </div>
 
@@ -18,16 +18,16 @@
 	<div class="col-sm-12">
 		<br/>
 		<br/>
-		<h2 style="page-decoration:underline">Product Addition Form</h2>
+		<h2 style="page-decoration:underline">Service Product Addition Form</h2>
 
 		<form method="post" action="/admin/products/add-product" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="">Product</label>
-				<input type="text" class="form-control capitalize-text" name="title" value="<%= title %>" placeholder="Product">
+				<label for="">Service</label>
+				<input type="text" class="form-control capitalize-text" name="title" value="<%= title %>" placeholder="Service">
 			</div>
 
 			<div class="form-group">
-				<label for="">Price (USD)</label>
+				<label for="">Price (USD)/Day of Labor (including materials)</label>
 				<input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price (eg: 59.99)">
 			</div>
 
@@ -47,11 +47,11 @@
 			</div>
 
 			<div class="form-group">
-				<label for="">Product Image</label>
+				<label for="">Service Image</label>
 				<input type="file" id="productImg" class="form-control" name="image">
 				<div class="row">
 					<div class="col-sm-12 text-center img-responsive" style="margin:0 auto; margin-top: 50px">
-						<h4>Product Image Preview</h4>
+						<h4>Service Image Preview</h4>
 						<img id="productImgPreview" width="350" height="300" src="/images/defaultImg.png" alt="Uploaded Product Image">
 					</div>
 				</div>	
