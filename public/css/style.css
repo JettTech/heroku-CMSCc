@@ -241,6 +241,12 @@ table.alignMiddle td {
 	top: 200px;
 }
 
+@media screen and (max-height: 425px) {
+	#headline {
+		display: none;
+	}
+}
+
 .homepage-hero-module {
     border-right: none;
     border-left: none;
@@ -307,8 +313,7 @@ video.fillWidth {
   bottom: 33%;
 }
 
-
-@media screen and (max-width: 425) {
+@media screen and (max-width: 425px) {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
