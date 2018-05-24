@@ -181,13 +181,7 @@ app.use("/", pages);
 //Connection to DB:
 //-----------------------
 mongoose.Promise = global.Promise; // Set up promises with mongoose
-mongoose.connect (
-  process.env.MONGODB_URI || "mongodb://localhost/cmsConstructionCart", // !! DB in mongoose, (Robo 3t), should be "mavSquared" !!
-
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect (process.env.MONGODB_URI || "mongodb://localhost/cmsConstructionCart"); // !! DB in mongoose, (Robo 3t), should be "mavSquared" !!
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
