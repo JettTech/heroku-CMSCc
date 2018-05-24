@@ -26,7 +26,7 @@ var Category = require("../models/category");
 //1.) To Get Admin Product Index:
 //------------------------
 //This route is refering to the "/admin/products/" ..as this part is the root file listed in the app.js file.
-router.get("/", function(req, res) {
+router.get("/", isAdmin, function(req, res) {
 	var count;
 
 	Product.count(function(req, countResult) {
@@ -59,7 +59,7 @@ router.get("/test", function(req, res) {
 //3.) To Get Admin Product >> Add Product:
 //--------------------------------
 //This route is refering to the "/admin/products/add-product" ..as this part is the root file listed in the app.js file.
-router.get("/add-product", function(req, res) {
+router.get("/add-product", isAdmin, function(req, res) {
 	var title = "";
 	var description = "";
 	var price = "";
@@ -77,7 +77,7 @@ router.get("/add-product", function(req, res) {
 //4.) To Get Edit-Product Products >> Edit a product-for Admin Views:
 //--------------------------------
 //This route is refering to the "/admin/products/add-product" ..as this part is the root file listed in the app.js file.
-router.get("/edit-product/:id", function(req, res) {
+router.get("/edit-product/:id", isAdmin, function(req, res) {
 	var errors;
 	var title = "";
 	var description = "";
@@ -134,7 +134,7 @@ router.get("/edit-product/:id", function(req, res) {
 //5.) To Get View-Product Products >> View a product-for Admin Views:
 //--------------------------------
 //This route is refering to the "/admin/products/add-product" ..as this part is the root file listed in the app.js file.
-router.get("/view-product/:id", function(req, res) {
+router.get("/view-product/:id", isAdmin, function(req, res) {
 	var id = req.params.id
 
 	Product.findById(id, function(err, product) {
@@ -184,7 +184,7 @@ router.get("/view-product/:id", function(req, res) {
 //6.) To Get Delete-Product Products >> Delete a Product:
 //-------------------------------------------------
 //This route is refering to the "/admin/products/delete-product" ..as this part is the root file listed in the app.js file.
-router.get("/delete-product/:id", function(req, res) {
+router.get("/delete-product/:id", isAdmin, function(req, res) {
 	var id = req.params.id;
 	var path = "public/product_images/" + id;
 
@@ -209,7 +209,7 @@ router.get("/delete-product/:id", function(req, res) {
 //-------------------------------------------------
 // admin/products/delete-image/pureArchitecture.jpg/?id=5afa4495fc90363f20830412
 //This route is refering to the "/admin/products/delete-image/:image/?id" ..as this part is the root file listed in the app.js file.
-router.get("/delete-image/:image", function(req, res) {
+router.get("/delete-image/:image", isAdmin, function(req, res) {
 	var originalSizeImage = "public/product_images/" + req.query.id + "/gallery/" + req.params.image;
 	var thumbnailImage = "public/product_images/" + req.query.id + "/gallery/thumbnails/" + req.params.image;
 

@@ -23,8 +23,10 @@ var ProductSchema = mongoose.Schema({
 	},
 	image: {
 		type: String
+	},
+	sorting: {
+		type: Number
 	}
-
 });
 var Product = mongoose.model("Product", ProductSchema);
 module.exports = Product;

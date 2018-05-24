@@ -8,6 +8,9 @@ var CategorySchema = mongoose.Schema({
   },
   slug: {
     type: String
+  },
+  sorting: {
+	type: Number
   }
 });
 var Category = mongoose.model("Category", CategorySchema);

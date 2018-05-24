@@ -18,7 +18,7 @@ var Category = require("../models/category");
 //1.) To Get Admin Category Index:
 //----------------------------------------------------------
 //This route is refering to the "/admin/category/" ..as this part is the root file listed in the app.js file.
-router.get("/",  function(req, res) {
+router.get("/", isAdmin, function(req, res) {
 	// res.send("This is the Admin Category Area");
 	Category.find({}, function(err, categories) {
 		if(err) return console.log(err);
@@ -39,7 +39,7 @@ router.get("/test", function(req, res) {
 //3.) To Get Admin Categories >> Add Category:
 //------------------------------------------------------------------
 //This route is refering to the "/admin/categories/add-category" ..as this part is the root file listed in the app.js file.
-router.get("/add-category",  function(req, res) {
+router.get("/add-category", isAdmin, function(req, res) {
 	var title = "";
 
 	res.render("admin/add_category", {
@@ -50,7 +50,7 @@ router.get("/add-category",  function(req, res) {
 //4.) To Get Edit-Categories Page >> Edit a Catetory- for Admin Views:
 //-----------------------------------------------------------------------------------
 //This route is refering to the "/admin/categories/add-category" ..as this part is the root file listed in the app.js file.
-router.get("/edit-category/:id",  function(req, res) {
+router.get("/edit-category/:id", isAdmin, function(req, res) {
 	Category.findById(req.params.id, function(err, category) {
 		if(err) {
 			return console.log(err);
@@ -67,7 +67,7 @@ router.get("/edit-category/:id",  function(req, res) {
 //4.) To GET the new Category page with deleted item  >> Delete a Category:
 //-----------------------------------------------------------------------------------
 //This route is refering to the "/admin/categories/delete-category" ..as this part is the root file listed in the app.js file.
-router.get("/delete-category/:id", function(req, res) {
+router.get("/delete-category/:id", isAdmin, function(req, res) {
 	//FYI: WE NEVER REDIRECT from the current (default) "/admin/categories category, as we are only updating
 	//the dateabase with the exisitance of a document or not (and thus how maany/what docs ot display
 	//on the current category or not)...
@@ -76,7 +76,7 @@ router.get("/delete-category/:id", function(req, res) {
 			return console.log(err);
 		}
 
-		Category.find(function(err, categories) {
+		Category.find({}).sort({sorting: 1}).exec(function(err, categories) {
 			if(err) {
 				console.log(err);
 			}
@@ -142,7 +142,8 @@ router.post("/add-category", function(req, res) {
 			else {
 				var category = new Category({
 					title: title,
-					slug: slug
+					slug: slug,
+					sorting: Infinity
 				});
 
 				category.save(function(err) {
@@ -150,7 +151,7 @@ router.post("/add-category", function(req, res) {
 						return console.log(err);
 					}
 
-					Category.find(function(err, categories) {
+					Category.find({}).sort({sorting: 1}).exec(function(err, categories) {
 							if(err) {
 								console.log(err);
 							}
@@ -170,8 +171,7 @@ router.post("/add-category", function(req, res) {
 //2.) To Save(POST) the REORDER CATEGORY (while on the admin/categories site) in the DB:
 //-------------------------------------------------------------------------------
 //This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
-router.post("/reorder-categories", function(req, res) {
-	var ids = req.body["id[]"];
+function sortCategories(ids, callback) {
 	var count = 0;
 
 	for (var i = 0; i < ids.length; i++) {
@@ -183,10 +183,30 @@ router.post("/reorder-categories", function(req, res) {
 				category.sorting = count;
 				category.save(function(err) {
 					if(err) return console.log(err);
+					count++;
+					if (count >= ids.length) {
+						callback(); //in this scenario, all of the ids (all the categories therefore), have been processed/interated over...
+					}
 				});
 			});
 		})(count); //ending for closure
 	}
+};
+
+//This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
+router.post("/reorder-categories", function(req, res) {
+	var ids = req.body["id[]"];
+
+	sortCategories(ids, function() {
+		Category.find({}).sort({sorting: 1}).exec(function (err, categories) {
+			if(err) {
+				console.log(err);
+			}
+			else {
+				req.app.locals.categories = categories;
+			}
+		});
+	});
 });
 
 
@@ -260,7 +280,7 @@ router.post("/edit-category/:id", function(req, res) {
 							return console.log(err);
 						}
 
-						Category.find(function(err, categories) {
+						Category.find({}).sort({sorting: 1}).exec(function(err, categories) {
 							if(err) {
 								console.log(err);
 							}

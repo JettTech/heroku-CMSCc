@@ -18,7 +18,7 @@ var Page = require("../models/page");
 //1.) To Get Admin Pages Index:
 //------------------------
 //This route is refering to the "/admin/pages/" ..as this part is the root file listed in the app.js file.
-router.get("/", function(req, res) {
+router.get("/", isAdmin, function(req, res) {
 	// res.send("This is the Admin Page Area");
 	Page.find({}).sort({sorting: 1}).exec(function(err, pages) {
 		res.render("admin/pages", {
@@ -39,7 +39,7 @@ router.get("/test", function(req, res) {
 //3.) To Get Admin Pages >> Add Page:
 //--------------------------------
 //This route is refering to the "/admin/pages/add-page" ..as this part is the root file listed in the app.js file.
-router.get("/add-page", function(req, res) {
+router.get("/add-page", isAdmin, function(req, res) {
 	var title = "";
 	var slug = "";
 	var content = "";
@@ -54,7 +54,7 @@ router.get("/add-page", function(req, res) {
 //4.) To Get Edit-Page Pages >> Edit a Page-for Admin Views:
 //--------------------------------
 //This route is refering to the "/admin/pages/add-page" ..as this part is the root file listed in the app.js file.
-router.get("/edit-page/:id", function(req, res) {
+router.get("/edit-page/:id", isAdmin, function(req, res) {
 	Page.findById(req.params.id, function(err, page) {
 		if(err) {
 			return console.log(err);
@@ -73,7 +73,7 @@ router.get("/edit-page/:id", function(req, res) {
 //5.) To Get Delete-Page Pages >> Delete a Page:
 //-------------------------------------------------
 //This route is refering to the "/admin/pages/delete-page" ..as this part is the root file listed in the app.js file.
-router.get("/delete-page/:id", function(req, res) {
+router.get("/delete-page/:id", isAdmin, function(req, res) {
 	//FYI: WE NEVER REDIRECT from the current (default) "/admin/pages page, as we are only updating
 	//the dateabase with the exisitance of a document or not (and thus how maany/what docs ot display
 	//on the current page or not)...
