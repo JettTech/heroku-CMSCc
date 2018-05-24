@@ -63,9 +63,10 @@
           </li>
         <% } %>  
         <% }); %>
+        <div class="dropdown-divider"></div>
         </ul>
         <span class="navbar-text">
-          <ul class="text-center text-white navbar-nav ml-auto" style="margin-right: 20px; list-style:none;">
+          <ul class="text-center text-white navbar-nav ml-auto" style="margin-right: 20px; margin-bottom: 1rem; list-style:none;">
             <% if (user && user.admin === 1) { %>
               <li>Hello <%= user.username %> (Admin) | </li>
               <li><a href="/admin/pages">Admin Area</a></li>
