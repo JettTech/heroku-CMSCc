@@ -144,9 +144,18 @@ img.spi {
 	width: 100%;
 }
 
+.navRightLinksFirst {
+	margin-right: 20px;
+	margin-bottom: 1rem;
+	position: relative;
+	left: -17px;
+}
+
 .navRightLinks {
 	margin-right: 20px;
 	margin-bottom: 1rem;
+	position: relative;
+	left: -17px;
 }
 
 ul.gallery.li {
@@ -326,6 +335,14 @@ video.fillWidth {
 		position: absolute;
 	  	left: 42%;
 	 	bottom: 61%;
+	}
+}
+
+@media screen and (max-width: 821px) and (min-width: 426px) {
+	.arrow {
+		position: absolute;
+	  	left: 42%;
+	 	bottom: 42%;
 	}
 }
 

@@ -68,7 +68,7 @@
         <span class="navbar-text">
           <ul class="text-center text-white navbar-nav ml-auto" style="list-style:none;">
             <% if (user && user.admin === 1) { %>
-              <li class="navRightLinks">Hello <%= user.username %> (Admin) | </li>
+              <li class="navRightLinksFirst">Hello <%= user.username %> (Admin) | </li>
               <li class="navRightLinks"><a href="/admin/pages">Admin Area</a></li>
               <li class="navRightLinks">
                 <a href="/cart/checkout">My Cart 
@@ -82,7 +82,7 @@
               <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
             <% } %> 
             <% if (user && user.admin === 0) { %>
-              <li class="navRightLinks">Hi, <%= user.username %>!</li>
+              <li class="navRightLinksFirst">Hi, <%= user.username %>!</li>
               <li class="navRightLinks">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
@@ -94,7 +94,7 @@
               </li>
               <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
             <% } else if (!user) { %> 
-              <li class="navRightLinks"><a href="/users/register" style="margin-right: 20px;">Register</a></li>
+              <li class="navRightLinksFirst"><a href="/users/register" style="margin-right: 20px;">Register</a></li>
               <li class="navRightLinks"><a href="/users/login">Log in</a></li>
             <% } %> 
           </ul>
