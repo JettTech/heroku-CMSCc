@@ -66,7 +66,7 @@
         </ul>
         <ul class="text-center text-white navbar-nav navbar-right" style="margin-right: 20px;">
           <% if (user && user.admin === 1) { %>
-            <li>Hello <%= user.username %> (Admin).</li>
+            <li>Hello <%= user.username %> (Admin) | </li>
             <li><a href="/admin/pages">Admin Area</a></li>
             <li>
               <a href="/cart/checkout">My Cart 
@@ -91,7 +91,7 @@
               </a>
             </li>
             <li><a href="/users/logout">Log Out</a></li>
-          <% } else { %> 
+          <% } else if (!user) { %> 
             <li><a href="/users/register" style="margin-right: 20px;">Register</a></li>
             <li><a href="/users/login">Log in</a></li>
           <% } %> 
