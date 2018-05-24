@@ -359,7 +359,7 @@ router.post("/add-product", function(req, res) {
 						});
 					}
 
-					req.flash("success", "Product added!");
+					req.flash("success", "Service Product added!");
 					res.redirect("/admin/products");
 				});
 			}
@@ -511,7 +511,7 @@ router.post("/edit-product/:id", function(req, res) {
 							});
 						}
 
-						req.flash("success", "Product edited!");
+						req.flash("success", "Service Product edited!");
 						res.redirect("/admin/products/edit-product/" + id);											
 					});
 				});
