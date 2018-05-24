@@ -37,6 +37,9 @@
 			            <a class="viewDetails text-warning" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
 			        </div>
 			    <% }); %>
+			    <% if (typeof products === "string") { %>
+			    	<div class="text-white text-center"><%= products %></div>
+			    <% } %>
 			</div>
 		</div>
 

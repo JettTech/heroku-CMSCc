@@ -572,7 +572,7 @@ router.post("/edit-product/:id", function(req, res) {
 						}
 
 
-						Product.find({}).sort({sorting: 1}).exec(function(err, pages) {
+						Product.find({}).sort({sorting: 1}).exec(function(err, products) {
 							if (err) {
 								console.log(err)
 							}
