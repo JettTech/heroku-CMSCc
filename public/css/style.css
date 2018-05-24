@@ -147,8 +147,6 @@ img.spi {
 .navRightLinksFirst {
 	margin-right: 20px;
 	margin-bottom: 1rem;
-	position: relative;
-	left: -17px;
 }
 
 .navRightLinks {
@@ -342,7 +340,7 @@ video.fillWidth {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
-	 	bottom: 42%;
+	 	bottom: 31%;
 	}
 }
 

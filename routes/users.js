@@ -27,7 +27,8 @@ router.get("/login", function(req, res) {
 	}
 	else {
 		res.render("login", {
-			title: "Log In"
+			title: "Log In",
+			message: req.flash("There was a Login Error. Please verify your credentials and try again.")
 		});
 	}
 });
@@ -109,8 +110,10 @@ router.post("/login", function(req, res, next) {
 	passport.authenticate("local", {
 		successRedirect: "/",
 		failureRedirect: "/users/login",
-		failureFlash: req.flash("danger", "There was a Login Error. Please verify your credentials and try again.")
+		failureFlash: true
 	})(req, res, next);
 });
 
 module.exports = router;
+
+//failureFlash: req.flash("danger", "There was a Login Error. Please verify your credentials and try again.")
