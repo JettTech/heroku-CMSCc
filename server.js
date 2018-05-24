@@ -61,12 +61,24 @@ Page.find({}).sort({sorting:1}).exec(function (err, pages) {
 
 //Make all (client-side) CATEGORIES pass into Header.ejs (app.locals.pages):
 //---------------------------------------------------------------
-Category.find(function (err, categories) {
+Category.find({}).sort({sorting:1}).exec(function (err, categories) {
 	if(err) {
 		console.log(err);
 	}
 	else {
 		app.locals.categories = categories;
+	}
+});
+
+
+//Make all (client-side) PRODUCTS pass into Header.ejs (app.locals.pages):
+//---------------------------------------------------------------
+Product.find({}).sort({sorting:1}).exec(function (err, products) {
+	if(err) {
+		console.log(err);
+	}
+	else {
+		app.locals.products = products;
 	}
 });
 

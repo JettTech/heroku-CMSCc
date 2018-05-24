@@ -68,8 +68,8 @@
         <span class="navbar-text">
           <ul class="text-center text-white navbar-nav ml-auto" style="list-style:none;">
             <% if (user && user.admin === 1) { %>
-              <li class="navRightLinksFirst text-info">Welcome <%= user.username %> (Admin). |</li>
-              <li class="navRightLinksHeader"><a href="/admin/pages"> Admin Area</a></li>
+              <li class="navRightLinksFirst text-info">Welcome <%= user.username %> (Admin)</li>
+              <li class="navRightLinksHeader"><a href="/admin/pages">Admin Area</a></li>
               <li class="navRightLinksHeader">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
