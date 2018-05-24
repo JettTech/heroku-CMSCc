@@ -308,7 +308,7 @@ video.fillWidth {
 }
 
 
-@media screen and (max-width: 425) { /*and (min-width: ) */
+@media screen and (max-width: 425) {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
