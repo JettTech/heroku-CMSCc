@@ -42,8 +42,8 @@ router.get("/", isAdmin, function(req, res) {
 	Product.find(function(err, products) {
 		res.render("admin/products", {
 			title: "Product Dashboard",
-			products: products //,
-			// count: count
+			products: products,
+			count: count
 		});
 	});
 });
@@ -198,15 +198,6 @@ router.get("/delete-product/:id", isAdmin, function(req, res) {
 					return console.log(err);
 				}
 
-				// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-				// 	if (err) {
-				// 		console.log(err)
-				// 	}
-				// 	else {
-				// 		req.app.locals.products = products;
-				// 	}
-				// });
-
 				req.flash("success", "The product was successfully deleted.");
 				res.redirect("/admin/products");
 
@@ -331,8 +322,7 @@ router.post("/add-product", function(req, res) {
 					description: description,
 					price: priceFixed,
 					category: category,
-					image: image//,
-					// sorting: Infinity 
+					image: image
 				});
 
 				product.save(function(err) {
@@ -354,7 +344,7 @@ router.post("/add-product", function(req, res) {
 								return console.log("this is your error3 : " + err);
 							}
 							else {
-								if (image !== "") { //say "imageFile" instead?
+								if (image !== "") {
 									var productImage = req.files.image;
 									var path = "public/product_images/" + product._id + "/" + image; // use "imageFile" instead?
 
@@ -368,15 +358,6 @@ router.post("/add-product", function(req, res) {
 							}
 						});
 					}
-
-					// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-					// 	if (err) {
-					// 		console.log(err)
-					// 	}
-					// 	else {
-					// 		req.app.locals.products = products;
-					// 	}
-					// });
 
 					req.flash("success", "Product added!");
 					res.redirect("/admin/products");
@@ -412,48 +393,7 @@ router.post('/product-gallery/:id', function (req, res) {
 	res.redirect("/admin/products");
 });
 
-//3.) To POST the Re-Ordered Product list (while on the admin/products site) in the DB:
-//-------------------------------------------------------------------------------
-//This route is refering to the "/admin/products/reorder-products" ..as this part is the root file listed in the app.js file.
-function sortProducts(ids, callback) {
-	var count = 0;
-
-	for (var i = 0; i < ids.length; i++) {
-		var id = ids[i];
-		count++;
-		//implement closure to ensure that all product reordering is completed (as node === asynchronous)
-		(function(count) { //opening closure
-			Product.findById(id, function(err, product) {
-				product.sorting = count;
-				product.save(function(err) {
-					if(err) return console.log(err);
-					count++;
-					if (count >= ids.length) {
-						callback(); //in this scenario, all of the ids (all the products therefore), have been processed/interated over...
-					}
-				});
-			});
-		})(count); //ending for closure
-	}
-};
-
-//This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
-// router.post("/reorder-products", function(req, res) {
-// 	var ids = req.body["id[]"];
-
-// 	sortProducts(ids, function() {
-// 		Product.find({}).sort({sorting: 1}).exec(function (err, products) {
-// 			if(err) {
-// 				console.log(err);
-// 			}
-// 			else {
-// 				req.app.locals.products = products;
-// 			}
-// 		});
-// 	});
-// });
-
-//4.) To POST the UPDATE the Edited products to DB:
+//3.) To POST the UPDATE the Edited products to DB:
 //-----------------------------------------------
 //This route is refering to the "/admin/products/edit-product/:slug" ..as this part is the root file listed in the app.js file.
 router.post("/edit-product/:id", function(req, res) {
@@ -570,15 +510,6 @@ router.post("/edit-product/:id", function(req, res) {
 								return console.log(err);
 							});
 						}
-
-						// Product.find({}).sort({sorting: 1}).exec(function(err, products) {
-						// 	if (err) {
-						// 		console.log(err)
-						// 	}
-						// 	else {
-						// 		req.app.locals.products = products;
-						// 	}
-						// });
 
 						req.flash("success", "Product edited!");
 						res.redirect("/admin/products/edit-product/" + id);											

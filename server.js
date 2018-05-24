@@ -70,18 +70,6 @@ Category.find({}).sort({sorting:1}).exec(function (err, categories) {
 	}
 });
 
-
-//Make all (client-side) PRODUCTS pass into Header.ejs (app.locals.pages):
-// //---------------------------------------------------------------
-// Product.find({}).sort({sorting:1}).exec(function (err, products) {
-// 	if(err) {
-// 		console.log(err);
-// 	}
-// 	else {
-// 		app.locals.products = products;
-// 	}
-// });
-
 ///////////////////////////////////////////////////////////////////////////////
 
 //Body Parser Middleware:
