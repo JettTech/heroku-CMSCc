@@ -22,6 +22,10 @@ hr {
 	z-index: 999;
 }
 
+.h1-textShadow {
+	text-shadow: 2px 2px white;
+}
+
 .pages-headline {
 	position: relative;
 	bottom: 75px;
@@ -259,7 +263,7 @@ table.alignMiddle td {
 	top: 200px;
 }
 
-@media screen and (max-width: 425px) {
+/*@media screen and (max-width: 425px) {
 	#headline {
 		display: none !important;
 	}
@@ -267,7 +271,7 @@ table.alignMiddle td {
 	.headline {
 		margin-top: 135px;
 	}
-}
+}*/
 
 .homepage-hero-module {
     border-right: none;
