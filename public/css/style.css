@@ -153,7 +153,7 @@ img.spi {
 }
 
 .navRightLinksFirst {
-	margin-right: 20px !important;
+	margin-right: 38px !important;
 	margin-bottom: 1rem;
 }
 
@@ -342,22 +342,6 @@ video.fillWidth {
   bottom: 33%;
 }
 
-@media screen and (max-width: 425px) {
-	.arrow {
-		position: absolute;
-	  	left: 42%;
-	 	bottom: 61%;
-	}
-}
-
-@media screen and (max-width: 821px) and (min-width: 426px) {
-	.arrow {
-		position: absolute;
-	  	left: 42%;
-	 	bottom: 58%;
-	}
-}
-
 @media screen and (max-width: 1131px) and (min-width: 822px) {
 	.arrow {
 		position: absolute;
@@ -366,6 +350,21 @@ video.fillWidth {
 	}
 }
 
+@media screen and (max-width: 821px) and (min-width: 535px) {
+	.arrow {
+		position: absolute;
+	  	left: 42%;
+	 	bottom: 58%;
+	}
+}
+
+@media screen and (max-width: 534px) {
+	.arrow {
+		position: absolute;
+	  	left: 42%;
+	 	bottom: 61%;
+	}
+}
 
 .bounce {
   -moz-animation: bounce 2s infinite;

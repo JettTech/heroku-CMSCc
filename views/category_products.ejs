@@ -26,14 +26,14 @@
 	  	</div>
 
 		<div class="col-xs-12 col-sm-6 col-md-9">
-			<div class="row products d-flex justify-content-left flex-wrap">
+			<div class="row products d-flex justify-content-center flex-wrap">
 			    <% products.forEach(function(product){ %>
 			        <div class="flex productDiv">
 			            <a class="productArea " href="/products/<%= product.category %>/<%= product.slug %>">
 			                <img class="productImage" src="/product_images/<%= product.id %>/<%= product.image %>" alt="">
 			            </a>
 			            <h5 class="capitalize-text text-white"><%= product.title.replace(/\-+/g, " ") %></h5>
-			            <h6 class="text-white">$<%= parseFloat(product.price).toFixed(2) %></h6>
+			            <h6 class="text-white">$<%= parseFloat(product.price).toFixed(2) %>/Day</h6>
 			            <a class="viewDetails text-white" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
 			        </div>
 			    <% }); %>
