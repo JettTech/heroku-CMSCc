@@ -149,11 +149,18 @@ img.spi {
 	margin-bottom: 1rem;
 }
 
-.navRightLinks {
+.navRightLinksHeader {
 	margin-right: 20px;
 	margin-bottom: 1rem;
 	position: relative;
 	left: -17px;
+}
+
+.navRightLinks {
+	margin-right: 20px;
+	margin-bottom: 1rem;
+	position: relative;
+	left: -8px;
 }
 
 ul.gallery.li {
@@ -252,7 +259,7 @@ table.alignMiddle td {
 	top: 200px;
 }
 
-@media screen and (max-height: 425px) {
+@media screen and (max-width: 425px) {
 	#headline {
 		display: none !important;
 	}
@@ -340,7 +347,7 @@ video.fillWidth {
 	.arrow {
 		position: absolute;
 	  	left: 42%;
-	 	bottom: 31%;
+	 	bottom: 57%;
 	}
 }
 

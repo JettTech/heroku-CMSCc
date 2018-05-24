@@ -69,8 +69,8 @@
           <ul class="text-center text-white navbar-nav ml-auto" style="list-style:none;">
             <% if (user && user.admin === 1) { %>
               <li class="navRightLinksFirst">Hello <%= user.username %> (Admin) | </li>
-              <li class="navRightLinks"><a href="/admin/pages">Admin Area</a></li>
-              <li class="navRightLinks">
+              <li class="navRightLinksHeader"><a href="/admin/pages">Admin Area</a></li>
+              <li class="navRightLinksHeader">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
                      (<% cart.length %>)
@@ -79,11 +79,11 @@
                    <% } %>  
                 </a>
               </li>
-              <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
+              <li class="navRightLinksHeader"><a href="/users/logout">Log Out</a></li>
             <% } %> 
             <% if (user && user.admin === 0) { %>
               <li class="navRightLinksFirst">Hi, <%= user.username %>!</li>
-              <li class="navRightLinks">
+              <li class="navRightLinksHeader">
                 <a href="/cart/checkout">My Cart 
                   <% if (typeof cart !== "undefined") { %>
                      (<% cart.length %>) 
@@ -92,10 +92,10 @@
                    <% } %>  
                 </a>
               </li>
-              <li class="navRightLinks"><a href="/users/logout">Log Out</a></li>
+              <li class="navRightLinksHeader"><a href="/users/logout">Log Out</a></li>
             <% } else if (!user) { %> 
               <li class="navRightLinksFirst"><a href="/users/register" style="margin-right: 20px;">Register</a></li>
-              <li class="navRightLinks"><a href="/users/login">Log in</a></li>
+              <li class="navRightLinksHeader"><a href="/users/login">Log in</a></li>
             <% } %> 
           </ul>
         </span>
