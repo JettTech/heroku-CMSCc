@@ -61,7 +61,7 @@ Page.find({}).sort({sorting:1}).exec(function (err, pages) {
 
 //Make all (client-side) CATEGORIES pass into Header.ejs (app.locals.pages):
 //---------------------------------------------------------------
-Category.find({}).sort({sorting:1}).exec(function (err, categories) {
+Category.find(function (err, categories) {
 	if(err) {
 		console.log(err);
 	}

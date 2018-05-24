@@ -142,8 +142,7 @@ router.post("/add-category", function(req, res) {
 			else {
 				var category = new Category({
 					title: title,
-					slug: slug,
-					sorting: Infinity
+					slug: slug
 				});
 
 				category.save(function(err) {
@@ -151,7 +150,7 @@ router.post("/add-category", function(req, res) {
 						return console.log(err);
 					}
 
-					Category.find({}).sort({sorting: 1}).exec(function(err, categories) {
+					Category.find(function(err, categories) {
 							if(err) {
 								console.log(err);
 							}
@@ -167,48 +166,6 @@ router.post("/add-category", function(req, res) {
 		});
 	}
 });
-
-//2.) To Save(POST) the REORDER CATEGORY (while on the admin/categories site) in the DB:
-//-------------------------------------------------------------------------------
-//This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
-function sortCategories(ids, callback) {
-	var count = 0;
-
-	for (var i = 0; i < ids.length; i++) {
-		var id = ids[i];
-		count++;
-		//implement closure to ensure that all category reordering is completed (as node === asynchronous)
-		(function(count) { //opening closure
-			Category.findById(id, function(err, category) {
-				category.sorting = count;
-				category.save(function(err) {
-					if(err) return console.log(err);
-					count++;
-					if (count >= ids.length) {
-						callback(); //in this scenario, all of the ids (all the categories therefore), have been processed/interated over...
-					}
-				});
-			});
-		})(count); //ending for closure
-	}
-};
-
-//This route is refering to the "/admin/categories/reorder-categories" ..as this part is the root file listed in the app.js file.
-router.post("/reorder-categories", function(req, res) {
-	var ids = req.body["id[]"];
-
-	sortCategories(ids, function() {
-		Category.find({}).sort({sorting: 1}).exec(function (err, categories) {
-			if(err) {
-				console.log(err);
-			}
-			else {
-				req.app.locals.categories = categories;
-			}
-		});
-	});
-});
-
 
 //============================================================
 // ==============  UPDATE(/PUT) ROUTE LOGIC  ============= 
@@ -280,7 +237,7 @@ router.post("/edit-category/:id", function(req, res) {
 							return console.log(err);
 						}
 
-						Category.find({}).sort({sorting: 1}).exec(function(err, categories) {
+						Category.find(function(err, categories) {
 							if(err) {
 								console.log(err);
 							}
