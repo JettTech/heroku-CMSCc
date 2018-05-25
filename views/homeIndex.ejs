@@ -12,19 +12,17 @@
 		    </video>
 		</div>
 	    <div class="arrow bounce">
-	    	<img height="75px" src="/images/arrow.png">
+	    	<img id="arrowImg" src="/images/arrow.png">
 	    </div>
 	</div> <!-- end of first row/jumbotron area... -->
 
 	<div id="homepage-row" class="row">
-		<div class="col-xs-12">
-			<div id="home-content" class="row justify-content-center">
-				<div class="col-xs-12 font-white"><%- content %></div>
-			</div>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
+		<div id="home-content" class="col-xs-12 justify-content-center">
+			<div class="font-white"><%- content %></div>
 		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 
 <% include _layouts/footer %>

@@ -1,14 +1,15 @@
 <% include _layouts/header %>
 
-	<div class="parallaxImg4"></div>
-
-	<% if (message) {%>
-        <% message.forEach(function(error) { %>
-        <div class="alert alert-danger">
-            <%= message %>
-        </div>
-        <% });%>
-    <% }%>
+	<div class="parallaxImg4">
+		      <%- messages("messages", locals) %>
+		      <% if (errors) {%>
+		          <% errors.forEach(function(error) { %>
+		          <div class="alert alert-danger higherZ">
+		              <%= error.msg %>
+		          </div>
+		          <% });%>
+		      <% }%>
+	</div>
 
 	<div class="row pages-row">
 		<div class="col-xs-12 col-sm-6 col-md-9 order-sm-2">
@@ -16,8 +17,7 @@
 				<div class="col-xs-12" style="margin:0 auto;">
 					<br/>
 					<br/>
-					<br/>
-					<br/>
+
 					
 					<h1 class="text-white h1-textShadow"><%= title %></h1>
 
@@ -53,6 +53,8 @@
 	        </li>
 	        <% }); %>
 	      </ul>
+	      <br/>
+		  <br/>
 	  	</div>
 		
 <% include _layouts/footer %>
