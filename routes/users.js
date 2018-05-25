@@ -105,13 +105,28 @@ router.post("/register", function(req, res) {
 });
 
 //Post the User LOG IN page
-router.post("/login", function(req, res, next) {
-	passport.authenticate("local", {
-		successRedirect: "/",
-		failureRedirect: "/users/login",
-		failureFlash: req.flash("Please verify your credentials and try logging in again.")
-	})(req, res, next);
+// router.post("/login", function(req, res, next) {
+// 	passport.authenticate("local", {
+// 		successRedirect: "/",
+// 		failureRedirect: "/users/login",
+// 		failureFlash: "Please verify your credentials and try logging in again."
+// 	})(req, res, next);
+// });
+
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { 
+    	req.flash("danger", "There was a Login Error. Please verify your credentials and try again.");
+    	return res.redirect('/users/login');
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect("/");
+    });
+  })(req, res, next);
 });
+
 
 module.exports = router;
 
