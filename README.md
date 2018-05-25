@@ -6,5 +6,4 @@ Discover what you can build [here](https://lit-badlands-79633.herokuapp.com/)!
 
 Built by [Lisa Jetton](https://github.com/JettTech/).
 
-//giphy goes here:
-![]()
+![](https://media.giphy.com/media/3o6YgdJuF74JXc7YaY/giphy.gif)
