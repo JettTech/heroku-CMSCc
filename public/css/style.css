@@ -142,7 +142,7 @@ hr {
 }
 
 #homepage-row {
-	background: #2d2d37;
+	background-color: #2d2d37;
 	margin: 0px 10px !important;
 }
 
@@ -267,6 +267,10 @@ p { /*this is for the content created by thte admin page...*/
 
 table.alignMiddle td {
 	vertical-align: middle !important;
+}
+
+.ending-div {
+	background-color: #2d2d37;
 }
 
 .footer.fixed-bottom {

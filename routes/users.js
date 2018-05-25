@@ -127,7 +127,4 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
-
 module.exports = router;
-
-//failureFlash: req.flash("danger", "There was a Login Error. Please verify your credentials and try again.")	if (err) console.log(err);
