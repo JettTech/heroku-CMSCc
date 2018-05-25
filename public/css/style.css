@@ -143,7 +143,11 @@ hr {
 
 #homepage-row {
 	background: #2d2d37;
-	margin: 5px 20px !important;
+	margin: 0px 10px !important;
+}
+
+#homepageContent > h1, h2, h3, h4, h5, h6, img, p {
+	margin: 15px !important;
 }
 
 #serviceMenuBar {
