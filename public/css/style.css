@@ -290,7 +290,7 @@ table.alignMiddle td {
 	top: 200px;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1275px) {
 	#headline {
 		top: 228px;
 }
