@@ -273,14 +273,14 @@ table.alignMiddle td {
 	background-color: #2d2d37;
 	width: 100%;
 	height: 20px;
-	position: absolute;
-	bottom: 0px;
+	position: relative;
+	bottom: 54px;
 	left: 0px;
+
 }
 
 .footer.fixed-bottom {
 	background-color: #fff;
-	color: #2d2d37;
 }
 
 /*////////  Homepage Video Styling  ////////*/
