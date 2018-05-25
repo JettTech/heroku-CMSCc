@@ -101,14 +101,3 @@
         </span>
       </div>
     </nav>
-
-    <div class="container-fluid text-center justify-content-center" style="padding: 0px;">
-      <%- messages("messages", locals) %>
-
-      <% if (errors) {%>
-          <% errors.forEach(function(error) { %>
-          <div class="alert alert-danger">
-              <%= error.msg %>
-          </div>
-          <% });%>
-      <% }%>

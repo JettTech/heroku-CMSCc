@@ -4,7 +4,16 @@
 		<div class="pages-headline justify-content-center">
 			<h1 id="headline capitalize-text" class="user-h1 col-xs-12"><%= product.title.replace(/\-+/g, " ") %></h1>
 		</div>
-		<br/>  
+		<br/> 
+
+		<%- messages("messages", locals) %>
+		<% if (errors) {%>
+		  <% errors.forEach(function(error) { %>
+		  <div class="alert alert-danger">
+		      <%= error.msg %>
+		  </div>
+		  <% });%>
+		<% }%> 
 	</div> <!-- end of first row/ header area... -->
 
 	<div class="row pages-row justify-content-center">

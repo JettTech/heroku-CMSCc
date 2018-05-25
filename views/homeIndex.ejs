@@ -1,10 +1,24 @@
 <% include _layouts/homeHeader %>
 
+<!-- !! Start the Main Container > this ends in Footer !! -->
+<div class="container-fluid user-container text-center justify-content-center" style="padding: 0px;">
+
+	<!-- start of video area... -->
 	<div class="homepage-hero-module">
 		<div id="innerVidDiv">
 			<div class="headline justify-content-center">
 				<h1 id="headline" class="user-h1 h1-textShadow-header col-xs-12 text-white d-none d-sm-block">Welcome to CMS Construction.Co</h1>
 			</div>
+			
+			<%- messages("messages", locals) %>
+			<% if (errors) {%>
+			  <% errors.forEach(function(error) { %>
+			  <div class="alert alert-danger">
+			      <%= error.msg %>
+			  </div>
+			  <% });%>
+			<% }%>
+
 		    <div class="filter"></div>
 		    <video autoplay preload="auto" muted="true" loop class="fillWidth fadeIn animated" poster="/images/Snapshots/Handyman-Construction.jpg">
 		        <source src="/images/MP4/Handyman-Construction.mp4" type="video/mp4" />
@@ -14,15 +28,20 @@
 	    <div class="arrow bounce">
 	    	<img id="arrowImg" src="/images/arrow.png">
 	    </div>
-	</div> <!-- end of first row/jumbotron area... -->
+	</div>
+	<!-- end of video area... -->
 
-	<div id="homepage-row" class="row">
+	<!-- !! Start the Content Row > this ends in Footer !! -->
+	<div id="homepage-row" class="row pages-row justify-content-center alignMiddle">
+		<!-- Start Content Area.. -->
 		<div id="home-content" class="col-xs-12 justify-content-center">
 			<div class="font-white"><%- content %></div>
 		</div>
+		<!-- End Content Area. -->
 		<br/>
 		<br/>
 		<br/>
 		<br/>
+	</div>
 
 <% include _layouts/footer %>

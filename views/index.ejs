@@ -1,19 +1,32 @@
 <% include _layouts/header %>
-
+	<!-- start parallax /header. -->
 	<div class="parallaxImg2">
 		<div class="pages-headline justify-content-center">
 			<h1 id="headline" class="user-h1 col-xs-12 h1-textShadow">Welcome to CMS Construction.Co</h1>
 		</div>
-		<br/>  
-	</div> <!-- end of first row/ header area... -->
+		<br/>
 
-	<div class="row pages-row">
+		<%- messages("messages", locals) %>
+		<% if (errors) {%>
+		  <% errors.forEach(function(error) { %>
+		  <div class="alert alert-danger higherZ">
+		      <%= error.msg %>
+		  </div>
+		  <% });%>
+		<% }%>  
+	</div>
+	<!-- end parallax/header. -->
+
+	<div class="row pages-row"> <!-- !! Start the Content Row > this ends in Footer !! -->
+		<!-- Col #1 >> Services Menu. -->
 		<div class="col-xs-12 col-md-9 order-md-2">
 			<div class="row justify-content-center page-content">
 				<div class="col-xs-12 font-white"><%- content %></div>
 			</div>
 		</div>
+		<!-- end of col #1. -->
 
+		<!-- Col #2 >>  >> Index Text Area.... -->
 		<div class="col-xs-12 col-md-3 order-md-1">
 		  <br/>
 	      <h3 class="text-white">Services</h3>
@@ -31,5 +44,6 @@
 	        <% }); %>
 	      </ul>
 	  	</div>
+	  	<!-- end of col #2 -->
 
 <% include _layouts/footer %>

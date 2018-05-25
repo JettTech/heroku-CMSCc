@@ -114,13 +114,4 @@
       </div>
     </nav>
 
-    <div class="user-container container-fluid text-center justify-content-center">
-      <%- messages("messages", locals) %>
-
-      <% if (errors) {%>
-          <% errors.forEach(function(error) { %>
-          <div class="alert alert-danger higherZ">
-              <%= error.msg %>
-          </div>
-          <% });%>
-      <% }%>
+    <div class="user-container container-fluid text-center justify-content-center"><!-- !! Start the Main Container > this ends in Footer !! -->

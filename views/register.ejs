@@ -1,6 +1,15 @@
 <% include _layouts/header %>
 
-	<div class="parallaxImg4"></div>
+	<div class="parallaxImg4">
+		<%- messages("messages", locals) %>
+		<% if (errors) {%>
+		  <% errors.forEach(function(error) { %>
+		  <div class="alert alert-danger">
+		      <%= error.msg %>
+		  </div>
+		  <% });%>
+		<% }%>
+	</div>
 
 	<div class="row pages-row">
 		<div class="col-xs-12 col-sm-6 col-md-9 order-sm-2">
