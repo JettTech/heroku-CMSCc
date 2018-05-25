@@ -108,9 +108,13 @@ router.post("/register", function(req, res) {
 router.post("/login", function(req, res, next) {
 	passport.authenticate("local", {
 		successRedirect: "/",
-		failureRedirect: "/users/login",
-		failureFlash: true
 	})(req, res, next);
+
+	if (err) console.log(err);
+	else {
+		req.flash("danger", "Please verify your credentials and try logging in again.");
+		res.redirect("/users/login");
+	}
 });
 
 module.exports = router;
