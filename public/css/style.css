@@ -271,10 +271,16 @@ table.alignMiddle td {
 
 .ending-div {
 	background-color: #2d2d37;
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
 }
 
 .footer.fixed-bottom {
 	background-color: #fff;
+	color: #2d2d37;
 }
 
 /*////////  Homepage Video Styling  ////////*/
@@ -297,7 +303,7 @@ table.alignMiddle td {
 .homepage-hero-module {
     border-right: none;
     border-left: none;
-    background: #2d2d37;
+    background: #2d2d37 !important;
 }
 
 #innerVidDiv {
