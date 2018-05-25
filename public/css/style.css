@@ -146,6 +146,10 @@ hr {
 	margin: 0 auto !important;
 }
 
+#serviceMenuBar {
+	margin-bottom: 20px;
+}
+
 .page-content {
 	margin: 5px 25px;
 }
