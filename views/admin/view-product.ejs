@@ -48,14 +48,14 @@
 				<% if (image === "") { %>
 					<img src="/images/defaultImg.png" alt="Default Profile Image" width="350" height="350">
 				<% } else { %> 
-					<img id="productImgPreview" width="550" height="500" src="/product_images/<%= id %>/<%= image %>" alt="Product Image">
+					<img id="productImgPreview" width="95%" height="500" src="/product_images/<%= id %>/<%= image %>" alt="Product Image">
 				<% } %>
 			</div>
 			<div class="col-sm-12 text-center img-responsive">
 				<br/>
 				<hr/>
 				<h2 class="page-header text-center">Image Gallery</h2>
-				<ul class="gallery noListDots d-flex justify-content-left flex-wrap">
+				<ul class="gallery noListDots d-flex justify-content-center flex-wrap">
 					<% galleryImages.forEach(function(image) { %>
 						<% if (image !== "thumbnails") { %>
 						<br/>
