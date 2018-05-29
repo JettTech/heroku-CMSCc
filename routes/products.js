@@ -46,7 +46,7 @@ router.get("/:category", function(req, res) {
 			if (!products) {
 				res.render("category_products"), {
 					title: categoryTitle.replace(/\-+/g, " "),
-					products: "There are no products currently available in this category."
+					products: ""
 				}
 			}
 			else {
