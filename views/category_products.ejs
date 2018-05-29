@@ -16,7 +16,7 @@
 	        <li class="list-group-item">
 	          <a href="/products">All Services</a>
 	        </li>
-			<% if (categories.length >= 1) { %>
+			<% if (categories) { %>
 	          <% categories.forEach(function(category) { %>
 		        <li class="list-group-item">
 		          <a class="capitalize-text" href="/products/<%= category.slug %>"><%= category.title.replace(/\-+/g, " ") %></a>
