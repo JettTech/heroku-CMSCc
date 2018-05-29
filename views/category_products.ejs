@@ -9,6 +9,7 @@
 
 	<div class="row pages-row">
 		<div class="col-xs-12 col-sm-6 col-md-3">
+		  <br/>
 	      <h3 class="text-white">Services</h3>
 	      <br/>
 
@@ -27,7 +28,7 @@
 
 		<div class="col-xs-12 col-sm-6 col-md-9">
 			<div class="row products d-flex justify-content-center flex-wrap">
-			<% if (products) { %>
+			<% if (products.length >= 1) { %>
 			    <% products.forEach(function(product){ %>
 			        <div class="flex productDiv">
 			            <a class="productArea " href="/products/<%= product.category %>/<%= product.slug %>">
@@ -38,7 +39,7 @@
 			            <a class="viewDetails text-warning" href="/products/<%= product.category %>/<%= product.slug %>"><h6>View Details</h6></a>
 			        </div>
 			    <% }); %>
-		  	<% } else if (products === "" || !products) { %>
+		  	<% } else { %>
 		      	<li class="list-group-item">
 		          <a class="capitalize-text text-white">There are currently no services available for this category.</a>
 		        </li>
