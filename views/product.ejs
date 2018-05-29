@@ -31,7 +31,7 @@
 		<div class="col-xs-12 col-sm-6 col-md-9">
 			<div class="row justify-content-center">
 				<div class="col-xs-12 col-md-7">
-					<p>$<%= parseFloat(product.price).toFixed(2) %>/Day of Labor (including materials)</p>
+					<p>$<%= parseFloat(product.price).toFixed(2) %>/Hour (including materials)</p>
 					<% if (loggedIn) { %>
 						<p><a class="btn btn-primary" href="/cart/add/<%= product.slug %>">Add to Cart</a></p>
 			    	<% } else { %> 
@@ -48,6 +48,7 @@
 			<hr />
 			<br/>
 			<h2 class="page-header text-center">Image Gallery</h2>
+			<h4 class="page-header text-center"><em>Click on image to view more detail.</em></h4>
 			<br/>
 			<br/>
 
